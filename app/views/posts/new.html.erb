@@ -1,0 +1,11 @@
+<% content_for :title, "New post" %>
+
+<h1>Nova Tarefa</h1>
+
+<%= render "form", post: @post %>
+
+<br>
+
+<div>
+  <%= link_to "Voltar", posts_path %>
+</div>

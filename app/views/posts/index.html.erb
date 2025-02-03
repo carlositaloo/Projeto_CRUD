@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tarefas</h1>
+<p class="text-muted text-center mb-4 fs-5">Gerencie suas tarefas de forma eficiente 🚀</p>
+
+<table class="table table-bordered table-hover text-center shadow-sm">
+  <thead class="table-dark">
+    <tr>
+      <th>TÍTULO</th>
+      <th>DESCRIÇÃO</th>
+      <th>CONCLUÍDO</th>
+      <th>OPÇÕES</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.titulo %></td>
+        <td><%= post.descricao %></td>
+        <td>
+          <% if post.concluido %>
+            <span class="badge bg-success"><i class="fas fa-check-circle"></i> Sim</span>
+          <% else %>
+            <span class="badge bg-warning"><i class="fas fa-times-circle"></i> Não</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to post, class: "btn btn-info btn-sm me-2 shadow-sm" do %>
+            <i class="fas fa-eye"></i> Mostrar
+          <% end %>
+
+          <%= link_to edit_post_path(post), class: "btn btn-warning btn-sm me-2 shadow-sm" do %>
+            <i class="fas fa-edit"></i> Editar
+          <% end %>
+
+          <%= link_to post, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger btn-sm shadow-sm" do %>
+            <i class="fas fa-trash-alt"></i> Excluir
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Nova Tarefa", new_post_path %>

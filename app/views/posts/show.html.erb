@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @post %>
+
+<div>
+  <%= button_to "Excluir Tarefa", @post, method: :delete %>
+  <br>
+  <div><%= link_to "Editar Tarefa", edit_post_path(@post) %></div>
+  <div><%= link_to "Voltar", posts_path %></div>
+</div>

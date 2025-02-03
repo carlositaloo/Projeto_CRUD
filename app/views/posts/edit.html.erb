@@ -1,0 +1,11 @@
+<% content_for :title, "Editing post" %>
+
+<h1>Editing post</h1>
+
+<%= render "form", post: @post %>
+
+<br>
+
+<div><%= link_to "Mostrar Tarefa", @post %></div>
+<div><%= link_to "Volta para Tarefas", posts_path %></div>
+
